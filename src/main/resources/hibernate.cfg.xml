@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/classicmodels</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <mapping class="com.company.app2driveTest.old.worked.Customers"/>
+    <mapping class="com.company.app2driveTest.entity.Employees"/>
+    <mapping class="com.company.app2driveTest.entity.Offices"/>
+    <mapping class="com.company.app2driveTest.entity.Orderdetails"/>
+    <mapping class="com.company.app2driveTest.entity.Orders"/>
+    <mapping class="com.company.app2driveTest.entity.Payments"/>
+    <mapping class="com.company.app2driveTest.entity.Productlines"/>
+    <mapping class="com.company.app2driveTest.entity.Products"/>
+    <mapping class="com.company.app2driveTest.old.entity.Customers"/>
+    <mapping class="com.company.app2driveTest.old.entity.Employees"/>
+    <mapping class="com.company.app2driveTest.old.entity.Offices"/>
+    <mapping class="com.company.app2driveTest.old.entity.Orderdetails"/>
+    <mapping class="com.company.app2driveTest.old.entity.Orders"/>
+    <mapping class="com.company.app2driveTest.old.entity.Payments"/>
+    <mapping class="com.company.app2driveTest.old.entity.Productlines"/>
+    <mapping class="com.company.app2driveTest.old.entity.Products"/>
+    <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

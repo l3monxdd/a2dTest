@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>customers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="stage"></div>
+<div id="city">
+    <input type="text" id="castomerName" placeholder="castomerName">
+    <button id="getAmount">getAmount</button>
+</div>
+
+<table>
+    <tr>
+        <th id="show1"></th>
+        <th id="show2"></th>
+    </tr>
+    <tr>
+        <td id="cName"></td>
+        <td id="myResult"></td>
+    </tr>
+</table>
+
+
+</body>
+<script>
+
+    $('#getAmount').click(function () {
+        console.log("working");
+
+        if ($('#castomerName').val() == '') {
+
+            var label = document.createElement('label');
+            label.style.color = 'red';
+            label.innerHTML = 'castomer name is empty';
+            document.getElementById('stage').appendChild(label);
+        } else {
+
+            var customer = {
+                customerName: $('#castomerName').val()
+            };
+
+            document.getElementById('cName').innerHTML = $('#castomerName').val();
+            document.getElementById('show1').innerHTML = 'name ';
+            document.getElementById('show2').innerHTML = ' Find amount of money, that customer spend';
+            console.log($('#castomerName').val());
+            $('#castomerName').val('');
+            $.ajax({
+                url: '/customers/amount?',
+                method: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify(customer),
+                success: function (res) {
+                    console.log(res);
+                    document.getElementById('myResult').innerHTML = res;
+                }
+            });
+        }
+    });
+
+</script>
+
+</html>
